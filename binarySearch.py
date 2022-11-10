@@ -1,5 +1,5 @@
 """ All the values must be sorted """
-arr = [x for x in range(1, 10000000001)]
+arr = [x for x in range(1, 10000001)]
 
 def binary_search(array: list,  target: int) -> int:
     first = 0

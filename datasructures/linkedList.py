@@ -12,6 +12,7 @@ class Node:
     def __repr__(self) -> str:
         return "<Node data: %s>" % self.data
     
+    
 class LinkedList:
     """ Singly linked list """
     def __init__(self):
@@ -70,7 +71,7 @@ class LinkedList:
             current = self.head
             
             while position > 1:
-                current = self.head.next_node
+                current = current.next_node
                 position -= 1
                 
             prev_node = current
@@ -103,7 +104,17 @@ class LinkedList:
                 
         return current
                 
-            
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        current = self.head
+        position = 0
+        
+        while position < index:
+            current = current.next_node
+            position += 1
+        return current
+        
     def __repr__(self) -> str:
         """
         Return a string representation of the list 
@@ -139,8 +150,9 @@ l.head.next_node.next_node.next_node = n4
 #better way to adding to a linked list
 
 l.add(100)
-l.insert(15, 2)
-print(l.remove(30))
+l.insert(200, 3)
 print(l)
 print(l.search(10))
 print(l.size())
+
+
