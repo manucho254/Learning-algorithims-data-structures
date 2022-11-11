@@ -1,14 +1,20 @@
-import sys
-# from load import load_numbers
-
 """
   selection sort
-  A mdeium good algorithim
+  O(n^2)
+  A medium good sorting algorithim
 """
 
-# numbers = load_numbers(sys.argv[1])
+import random
 
-# my solution
+arr = []
+n = 0
+while n != 10000:
+    val = random.randint(1, 10001)
+    arr.append(val)
+    n = val
+print(arr)
+
+# my hacky solution
 def selection_sort(values: list) -> list:
     sorted_ = []
     while len(values) > 0:
@@ -16,18 +22,19 @@ def selection_sort(values: list) -> list:
             if val == min(values):
                 sorted_.append(val)
                 values.remove(val)
-        print("%-25s                   %-25s" % (values, sorted_))
+        print("%-25s        %-25s" % (values, sorted_))
     return sorted_
                 
 print(selection_sort([1, 4, 2, 5, 3, 7, 9, 6, 8, 1, 2]))
+print(selection_sort(["milk", "egg", "bread"]))
+print(selection_sort(arr))
 
 
 #schools solution
 
 def selection_sort_2(values: list) -> list:
     sorted_list = []
-    
-    print("%-25s                   %-25s" % (values, sorted_list))
+    print("%-25s       %-25s" % (values, sorted_list))
     for _ in range(0, len(values)):
         index_to_move = index_of_min(values)
         sorted_list.append(values.pop(index_to_move))
@@ -43,4 +50,5 @@ def index_of_min(values):
     return min_index
 
 print(selection_sort_2([1, 4, 2, 5, 3, 7, 9, 6, 8, 1, 2]))
+print(selection_sort(["milk", "egg", "bread"]))
 

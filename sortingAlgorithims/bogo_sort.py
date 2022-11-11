@@ -4,7 +4,7 @@ from load import load_numbers
 
 """
   Bogo sort
-  A terrible sorting algorithim
+  A terrible sorting algorithim don't even bother using this
 """
 
 numbers = load_numbers(sys.argv[1])

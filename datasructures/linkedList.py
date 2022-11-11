@@ -152,7 +152,26 @@ l.head.next_node.next_node.next_node = n4
 l.add(100)
 l.insert(200, 3)
 print(l)
+l.add(20)
 print(l.search(10))
 print(l.size())
+
+
+def removeElements(linked: LinkedList, val: int) -> LinkedList:
+    current = linked.head
+    previous = None
+    
+    while current:
+        if current.data == val and current == linked.head:
+            linked.head = current.next_node
+        elif current.data == val:
+            previous.next_node = current.next_node
+        else:
+            previous = current
+        current = current.next_node
+            
+    return linked
+
+print(removeElements(l, 200))
 
 
