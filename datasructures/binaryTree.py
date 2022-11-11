@@ -1,50 +1,47 @@
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-        
+
 class BinaryTree:
-    def __init__(self):
-        self.head = None
+    def __init__(self, value):
+        self.left = None
+        self.right = None
+        self.value = value
         
-    def add(self, val):
-        node = TreeNode(val)
+    def add(self, value):
+        node = BinaryTree(value)
             
-        if self.head == None:
-            self.head = node
-        else:
-            if val > self.head.val:
-                self.head.right = node
+        if value > self.value:
+            if self.left is None:
+                self.left =  node
             else:
-                self.head.left = node
-                
-        return self.head
+                self.left.add(value)
+        else:
+            if self.right is None:
+                self.right =  node
+            else:
+                self.right.add(value)
     
     def __repr__(self) -> str:
         nodes = []
-        current = self.head
-        right = self.head.right
-        left = self.head.left
+        current = self.value
+        right = self.right
+        left = self.left
         
         while left:
-            nodes.append("%s" % left.val)
+            nodes.append("%s" % left.value)
             left = left.left
-            
-        nodes.append("%s" % current.val)
+        
+        nodes.append("%s" % current)
         
         while right:
-            nodes.append("%s" % right.val)
+            nodes.append("%s" % right.value)
             right = right.right
             
         return "-> ".join(nodes)
     
         
-tree = BinaryTree()
-tree.add(2)
+tree = BinaryTree(2)
 tree.add(1)
 tree.add(3)
-tree.add(3)
 tree.add(4)
+tree.add(9)
 
 print(tree)
